@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:ital,wght@1,400;1,500&display=swap');
+body {
+  color: #46322c;
+  font-family: "Montserrat";
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Roboto";
+  font-weight: 400;
+}
+
+#page-content-wrapper {
+  position: relative;
+  padding-bottom: 4rem;
+}
+
+/*----------------NAVBAR-----------*/
+
+.navbar {
+  background-color: #46322c;
+  color: #eaa794;
+  height: 4rem;
+}
+
+.navbar-toggler {
+  background-color: #eaa794;
+}
+
+.navbar .container-fluid {
+    display: block;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo-image {
+  height: 2.5rem;
+}
+
+.contact {
+  font-size: 1.5rem;
+}
+
+.dropdown-menu,
+.dropdown-item {
+  color: #46322c;
+  background-color: #fbeeea;
+}
+
+#sidebar-wrapper,
+#sidebar-wrapper .list-group-item {
+  background-color: #fbeeea;
+  color: #46322c;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  height: 4rem;
+  font-weight: 700;
+}
+
+#sidebar-wrapper .list-group-item:hover {
+  background-color: #eaa794;
+}
+
+#sidebar-wrapper .list-group-item.active {
+  background-color: #eaa794;
+  color: #46322c;
+}
+
+/*-----------------CONTENT---*/
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  animation-name: hero-zoom;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
+.hero-outer {
+  width: 100%;
+  height: 14rem;
+  overflow: hidden;
+}
+
+@media (min-width: 576px) { 
+    .hero-outer {
+        height: 22rem;
+    }
+}
+
+.table {
+  color: #46322c;
+  font-family: "Montserrat";
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fbeeea;
+}
+
+.marketing {
+    text-align: center;
+}
+
+.bd-placeholder-img {
+     width: 8rem;
+    height: 8rem;
+}
+
+.btn-secondary {
+    color: #46322c;
+    background-color: #eaa794;
+    border-color: #eaa794;
+}
+
+.btn-secondary:hover {
+    color: #eaa794;
+    background-color: #46322c;
+    border-color: #46322c;
+}
+/*-----------------FOOTER---*/
+
+footer {
+  bottom: 0;
+  position: absolute;
+  background-color: #46322c;
+  height: 62px;
+  color: #eaa794;
+  text-align: center;
+}
+
+.social-links a {
+  color: #eaa794;
+  font-size: 1.5rem;
+}
+
+.social-links {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.social-links .list-inline-item:not(:last-child) {
+  margin-right: 1.4rem;
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
