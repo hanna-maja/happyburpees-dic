@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -22,7 +23,7 @@ def get_items():
     items = mongo.db.items.find()
     return render_template("dictionary.html", items=items)
 
-@app.route("/skapa-konto")
+@app.route("/skapa-konto", methods=["GET", "POST"])
 def create_account():
     return render_template("create-account.html")
 

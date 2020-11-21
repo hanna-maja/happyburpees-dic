@@ -1,4 +1,42 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <h1>Skapa konto</h1>
+
+<form method="POST" action="{{ url_for('create_account') }}">
+<!-- username -->
+  <div class="form-group">
+    <label for="username">E-mail</label>
+    <input
+      type="text"
+      class="form-control validate"
+      id="username"
+      name="username"
+      placeholder="Ange e-mail"
+    />
+  </div>
+  <!-- name -->
+  <div class="form-group">
+    <label for="name">Namn</label>
+    <input
+      type="text"
+      class="form-control validate"
+      id="name"
+      name="name"
+      placeholder="Ange namn"
+    />
+  </div>
+  <!-- password -->
+  <div class="form-group">
+    <label for="password">Lösenord</label>
+    <input
+      type="text"
+      class="form-control validate"
+      id="password"
+      name="password"
+      placeholder="Lösenord"
+    />
+  </div>
+  <!-- register -->
+  <input class="btn btn-primary" type="submit" value="Skapa Konto">
+</form>
+
 {% endblock %}
