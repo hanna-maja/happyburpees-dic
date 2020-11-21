@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-app.sectret_key = os.environ.get("SECRET_KEY")
+app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
@@ -25,6 +25,24 @@ def get_items():
 
 @app.route("/skapa-konto", methods=["GET", "POST"])
 def create_account():
+    if request.method == "POST":
+        # does useername alredy exist in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Användarnamnet finns redan")
+            return redirect(url_for("create_account"))
+
+        account = {
+            "username": request.form.get("username").lower(),
+            "name": request.form.get("username"),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(account)
+
+        session["user"] = request.form.get("username").lower()
+        flash("Konto skapat")
     return render_template("create-account.html")
 
 @app.route("/logga-in")

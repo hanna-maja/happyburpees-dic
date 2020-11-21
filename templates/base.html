@@ -22,6 +22,16 @@
     {% endblock %}
   </head>
   <body>
+  <section>
+    <!-- Flash message -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div><h4>{{ message }}</h4></div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+  </section>  
     <div class="d-flex" id="wrapper">
       <!-- Sidebar -->
       <div class="border-right" id="sidebar-wrapper">
