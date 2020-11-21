@@ -24,6 +24,12 @@ def get_items():
     return render_template("dictionary.html", items=items)
 
 
+@app.route("/ord/<slug>")
+def view_item(slug):
+    item = mongo.db.items.find_one({"slug": slug})
+    return render_template("view-item.html", item=item)
+
+
 @app.route("/skapa-konto", methods=["GET", "POST"])
 def create_account():
     if request.method == "POST":
