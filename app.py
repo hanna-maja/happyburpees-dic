@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from slugify import slugify
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -90,7 +91,8 @@ def create_item():
             "name": request.form.get("name"),
             "short": request.form.get("short"),
             "long": request.form.get("long"),
-            "username": session["user"]
+            "username": session["user"],
+            "slug": slugify(request.form.get("name"))
         }
         if request.form.get("href"):
             dictionary["href"] = request.form.get("href")
