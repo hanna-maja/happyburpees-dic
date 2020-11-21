@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% block content %}
+<h1>Redigera Ord</h1>
+
+<form method="POST" action="{{ url_for('update_item', id=item._id) }}">
+  <!-- name -->
+  <div class="form-group">
+    <label for="name">Ord</label>
+    <input
+      value="{{ item.name }}"
+      type="text"
+      class="form-control validate"
+      id="name"
+      name="name"
+      placeholder="Ord"
+      minlength="1"
+      maxlength="20"
+      required
+    />
+  </div>
+  <!-- short description -->
+  <div class="form-group">
+    <label for="short">Kort beskrivning</label>
+    <input
+      value="{{ item.short }}"
+      type="text"
+      class="form-control validate"
+      id="short"
+      name="short"
+      placeholder="Beskrivning"
+      minlength="1"
+      maxlength="50"
+      required
+    />
+  </div>
+  <!-- long description -->
+  <div class="form-group">
+    <label for="long">Längre beskrivning</label>
+    <input
+      value="{{ item.long }}"
+      type="text"
+      class="form-control validate"
+      id="long"
+      name="long"
+      placeholder="Beskrivning"
+      minlength="6"
+      maxlength="300"
+      required
+    />
+  </div>
+  <!-- video, not demand -->
+  <div class="form-group">
+    <label for="href">Länk till video/bild</label>
+    <input
+      value="{{ item.href }}"
+      type="text"
+      class="form-control validate"
+      id="href"
+      name="href"
+      placeholder="Lägg till URL"
+    />
+  </div>
+  <!-- register -->
+  <a class="btn btn-secondary" href="{{ url_for('my_items') }}">Ångra</a>
+  <input class="btn btn-primary" type="submit" value="Spara ändringar" />
+</form>
+
+{% endblock %}

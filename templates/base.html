@@ -92,7 +92,7 @@
               <div class="logo col-8">
                 <img
                   class="logo-image"
-                  src="static/images/logo_small.png"
+                  src="{{ url_for('static', filename='images/logo_small.png')}}"
                   alt="HappyBurpees"
                 />
               </div>
@@ -123,7 +123,7 @@
           <div class="row">
             <img
               class="hero-img"
-              src="static/images/img_crossfit.jpg"
+              src="{{ url_for('static', filename='images/img_crossfit.jpg')}}"
               alt="crossfit"
             />
           </div>

@@ -112,10 +112,29 @@ def logout():
 
 @app.route("/ta-bort/<id>")
 def delete_item(id):
-    # Get item from database
+    # delete item from db
     mongo.db.items.remove({"_id": ObjectId(id)})
     flash("Ordet är borttaget")
     return redirect(url_for("my_items"))
+
+
+@app.route("/redigera/<id>", methods=["GET", "POST"])
+def update_item(id):
+    if request.method == "POST":
+        dictionary = {
+            "name": request.form.get("name"),
+            "short": request.form.get("short"),
+            "long": request.form.get("long"),
+            "username": session["user"]
+        }
+        if request.form.get("href"):
+            dictionary["href"] = request.form.get("href")
+
+        mongo.db.items.update({"_id": ObjectId(id)},dictionary)
+        flash("Ordet är sparat")
+        return redirect(url_for("my_items"))
+    item = mongo.db.items.find_one({"_id": ObjectId(id)})
+    return render_template("update-item.html", item=item)
 
 
 if __name__ == "__main__":
