@@ -109,6 +109,15 @@ def logout():
     session.clear()
     return redirect(url_for("get_items"))
 
+
+@app.route("/ta-bort/<id>")
+def delete_item(id):
+    # Get item from database
+    mongo.db.items.remove({"_id": ObjectId(id)})
+    flash("Ordet är borttaget")
+    return redirect(url_for("my_items"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
