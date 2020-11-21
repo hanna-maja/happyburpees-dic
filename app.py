@@ -18,11 +18,21 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_items")
 def get_items():
     items = mongo.db.items.find()
     return render_template("dictionary.html", items=items)
 
+@app.route("/skapa-konto")
+def create_account():
+    return render_template("create-account.html")
+
+@app.route("/logga-in")
+def login():
+    return render_template("login.html")
+
+@app.route("/nytt-ord")
+def create_item():
+    return render_template("create-item.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
