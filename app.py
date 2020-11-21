@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def get_items():
-    items = mongo.db.items.find()
+    items = mongo.db.items.find().sort("name")
     return render_template("dictionary.html", items=items)
 
 @app.route("/skapa-konto", methods=["GET", "POST"])
@@ -80,7 +80,8 @@ def create_item():
         dictionary = {
             "name": request.form.get("name"),
             "short": request.form.get("short"),
-            "long": request.form.get("long")
+            "long": request.form.get("long"),
+            "username": session["user"]
         }
         if request.form.get("href"):
             dictionary["href"] = request.form.get("href")
@@ -89,6 +90,13 @@ def create_item():
 
         flash("Nytt ord tillagt")
     return render_template("create-item.html")
+
+@app.route("/min-ordlista")
+def my_items():
+    items = mongo.db.items.find(
+        {"username": session["user"]}
+    ).sort("name")
+    return render_template("mydictionary.html", items=items)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
