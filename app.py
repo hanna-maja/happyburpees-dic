@@ -62,12 +62,32 @@ def login():
                 return redirect(url_for("login"))
         else:
             # invalid username
-            flash("Felaktigt Email eller lösenord")
+            flash("Felaktig Email eller lösenord")
             return redirect(url_for("login"))
     return render_template("login.html")
 
-@app.route("/nytt-ord")
+@app.route("/nytt-ord", methods=["GET", "POST"])
 def create_item():
+    if request.method == "POST":
+         # does item-name alredy exist in db
+        existing_item = mongo.db.items.find_one(
+            {"name": request.form.get("name")})
+
+        if existing_item:
+            flash("Ordet finns redan med i ordlistan")
+            return redirect(url_for("create_item"))
+
+        dictionary = {
+            "name": request.form.get("name"),
+            "short": request.form.get("short"),
+            "long": request.form.get("long")
+        }
+        if request.form.get("href"):
+            dictionary["href"] = request.form.get("href")
+
+        mongo.db.items.insert_one(dictionary)
+
+        flash("Nytt ord tillagt")
     return render_template("create-item.html")
 
 if __name__ == "__main__":
