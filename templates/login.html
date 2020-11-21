@@ -1,4 +1,37 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <h1>Logga In</h1>
+
+<form method="POST" action="{{ url_for('login') }}">
+  <!-- username -->
+  <div class="form-group">
+    <label for="username">E-mail</label>
+    <input
+      type="email"
+      class="form-control validate"
+      id="username"
+      name="username"
+      placeholder="Ange e-mail"
+      minlength="6"
+      maxlength="50"
+      required
+    />
+  </div>
+  <!-- password -->
+  <div class="form-group">
+    <label for="password">Lösenord</label>
+    <input
+      type="password"
+      class="form-control validate"
+      id="password"
+      name="password"
+      placeholder="Lösenord"
+      minlength="6"
+      maxlength="50"
+      required
+    />
+  </div>
+  <!-- log in -->
+  <input class="btn btn-primary" type="submit" value="Logga in" />
+</form>
+
 {% endblock %}
