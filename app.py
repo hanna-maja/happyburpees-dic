@@ -23,6 +23,7 @@ def get_items():
     items = mongo.db.items.find().sort("name")
     return render_template("dictionary.html", items=items)
 
+
 @app.route("/skapa-konto", methods=["GET", "POST"])
 def create_account():
     if request.method == "POST":
@@ -36,7 +37,7 @@ def create_account():
 
         account = {
             "username": request.form.get("username").lower(),
-            "name": request.form.get("username"),
+            "name": request.form.get("name"),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(account)
@@ -44,6 +45,7 @@ def create_account():
         session["user"] = request.form.get("username").lower()
         flash("Konto skapat")
     return render_template("create-account.html")
+
 
 @app.route("/logga-in", methods=["GET", "POST"])
 def login():
@@ -55,7 +57,7 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] =  request.form.get("username").lower()
-                    flash("Du är inloggad, {}".format(request.form.get("name")))
+                    flash("Du är inloggad, {}".format(existing_user["name"]))
             else:
                 # invalid password
                 flash("Felaktigt Email eller lösenord")
@@ -65,6 +67,7 @@ def login():
             flash("Felaktig Email eller lösenord")
             return redirect(url_for("login"))
     return render_template("login.html")
+
 
 @app.route("/nytt-ord", methods=["GET", "POST"])
 def create_item():
@@ -91,12 +94,20 @@ def create_item():
         flash("Nytt ord tillagt")
     return render_template("create-item.html")
 
+
 @app.route("/min-ordlista")
 def my_items():
     items = mongo.db.items.find(
         {"username": session["user"]}
     ).sort("name")
     return render_template("mydictionary.html", items=items)
+
+
+@app.route("/logga-ut")
+def logout():
+    flash("Du har blivit utloggad")
+    session.clear()
+    return redirect(url_for("get_items"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
