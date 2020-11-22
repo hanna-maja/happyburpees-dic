@@ -149,23 +149,42 @@ If this section grows too long, you may want to split it off into a separate fil
     - Register for mongodb cloud at https://www.mongodb.com/cloud
     - Create a cluster
         - Get the connectionstring
-        - Add connectionstring to environent variable MONGO_URI. `export MONGO_URI="<connection string>"`
     - Create a database
-    - Add db name to environment variable MONGO_DBNAME. `export MONGO_DBNAME="<database name>"`
     - Create two collections, `users` and `items`
-- Add port to environment variable PORT. `export PORT="8080"`
-- Add secret_key to environment variable SECRET_KEY. `export SECRET_KEY="<secret key>"`
+- Create a file called "env.py" and within this file add content to following variables:
+```
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "<secret key>")
+os.environ.setdefault("MONGO_URI", "<mongo db connectionstring>")
+os.environ.setdefault("MONGO_DBNAME", "<database name>")
+```
 - Run application. python3 app.py
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+### Heroku
+In order to deploy this project to Heroku:
+- Create a requirements.txt file by typing `pip3 freeze --local > requirements.txt` into the terminal.
+- Create a Procfile by typing `echo web: python app.py > Procfile`. 
+- Navigate to the [Heroku website](https://dashboard.heroku.com/).
+- Click on "New" in the top right hand corner and then select "Create new app" from the dropdown.
+- Proceed to give it a unique app name and choose a region that is local to you.
+- Once created, scroll down to the Deployment method section on the app's dashboard.
+- Choose GitHub as source and master as repository.
+- Once connected, navigate to the settings page and find the section marked "Config Vars".
+- Set the following:
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+```
+    IP = 0.0.0.0
+    MONGO_DBNAME = [Name of MongoDB chosen]
+    MONGO_URI = mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority
+    PORT = 5000
+    SECRET_KEY = [Secret key chosen]
+```
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
-
+- Click the Deploy tab.
+- Under "Manual Deployment", ensure that the master branch is selected and click "Deploy Branch".
 
 ## Credits
 
@@ -176,53 +195,3 @@ In addition, if it is not obvious, you should also describe how to run your code
 ### Code
 - (https://hanna-maja.github.io/MI1/wodar.html)
     - Started this project based on one page fron my first MileStoneProject. This is how I wanted my dictionary site on my first MileStoneProject should have looked, but by that time it was to much Technologies I had not learned yet.
-
-
-
-
-
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
-
-Welcome hanna-maja,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
