@@ -1,51 +1,56 @@
 {% extends "base.html" %} {% block content %}
-<h1>Skapa konto</h1>
-
-<form method="POST" action="{{ url_for('create_account') }}">
-  <!-- username -->
-  <div class="form-group">
-    <label for="username">E-mail</label>
-    <input
-      type="email"
-      class="form-control validate"
-      id="username"
-      name="username"
-      placeholder="Ange e-mail"
-      minlength="6"
-      maxlength="50"
-      required
-    />
+<div class="card col-12">
+  <div class="card-body">
+    <h1>Skapa konto</h1>
+    <p class="card-text">Skapa ett konto på happy burpees för att själv hjälpa till att bidra till ett växande crossfit community. Har du redan ett konto kan du istället <a href="{{ url_for('login') }}">logga in</a></p>
   </div>
-  <!-- name -->
-  <div class="form-group">
-    <label for="name">Namn</label>
-    <input
-      type="text"
-      class="form-control validate"
-      id="name"
-      name="name"
-      placeholder="Ange namn"
-      minlength="6"
-      maxlength="50"
-      required
-    />
+  <div class="card-body">
+    <form method="POST" action="{{ url_for('create_account') }}">
+      <!-- username -->
+      <div class="form-group">
+        <label for="username">E-mail</label>
+        <input
+          type="email"
+          class="form-control validate"
+          id="username"
+          name="username"
+          placeholder="Ange e-mail"
+          minlength="6"
+          maxlength="50"
+          required
+        />
+      </div>
+      <!-- name -->
+      <div class="form-group">
+        <label for="name">Namn</label>
+        <input
+          type="text"
+          class="form-control validate"
+          id="name"
+          name="name"
+          placeholder="Ange namn"
+          minlength="6"
+          maxlength="50"
+          required
+        />
+      </div>
+      <!-- password -->
+      <div class="form-group">
+        <label for="password">Lösenord</label>
+        <input
+          type="password"
+          class="form-control validate"
+          id="password"
+          name="password"
+          placeholder="Lösenord"
+          minlength="6"
+          maxlength="50"
+          required
+        />
+      </div>
+      <!-- register -->
+      <input class="btn btn-primary" type="submit" value="Skapa Konto" />
+    </form>
   </div>
-  <!-- password -->
-  <div class="form-group">
-    <label for="password">Lösenord</label>
-    <input
-      type="password"
-      class="form-control validate"
-      id="password"
-      name="password"
-      placeholder="Lösenord"
-      minlength="6"
-      maxlength="50"
-      required
-    />
-  </div>
-  <!-- register -->
-  <input class="btn btn-primary" type="submit" value="Skapa Konto" />
-</form>
-
+</div>
 {% endblock %}
