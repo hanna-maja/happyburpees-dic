@@ -2,64 +2,160 @@
 
 This site is for CrossFit practitioners or those hwo want to know more about the terms used in CrossFit training. The site remains a dictionary and explinations for a particular word or shortening that are common in CrossFit.
 The site will allow you to search, create, read, update and delete among the CrossFit related terms.
-
-One or two paragraphs providing an overview of your project.
-
-Essentially, this part is your sales pitch.
  
 ## UX
  
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
-
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+- As a CrossFit practitioner, both experienced and beginners, you will always see new words or terms you newer heard before, therefore this page will give you the chanse to search and read more about them.
+- As a CrossFit practitioner I want to see how to lift or make a a particular exercise, therefore this page will give you the chans to search a term and click on a suggested videlink for thet exercise.
+- As a CrossFit practitioner it is nice to have a dictionary suited for you, therefore you will get the chanse to register an account where you can store the terms in CrossFit related to you.
+- As a CrossFit practitioner, who already have an account, you want to log in to your own pages with your own dictionary.
+- As a CrossFit practitioner you want to fill in terms that ar relevant for you in CrossFit, therefore the site gives you the opportunity to create new items to the dictionary in an logged in mode.
+- As a CrossFit practitioner you maybe want to change or the terms in your dicitionary or fill in more content, therefore this  page will give you the opportunity to do that in an logged in mode.
+- As a CrossFit practitioner you want to make the dictionary of CrossFit terms suited for you, therefore you will have the chanse to delete words you have suggested to the dictionary before in an logged in mode.
+- As a CrossFit practitioner I want to see how to lift or make a a particular exercise, therefore this page will give you the opportunity to click on a shered video.
+- As a CrossFit practitioner I want inspiration and therefore the site have social media links to get you what you want.
+- As a CrossFit practitioner you sometimes have questions or suggestions therefore you find Contact information with an e-mail address.
 
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
- 
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+- A dictionary with terms related to CrossFit.
+- A searchbar so you can search for a specific term used in CrossFit.
+- Clickable words used in CrossFit so you can see a longer description, if needed.
+- A register from where you fill in username, name and a password all stored in MongoDB.
+- A log in page to reaach your own dictionary.
+- An update button where you can update the information about the choosen word.
+- A delete button if you want to delete some words in your dictionary.
+- A link to a video where you can see how to do the exercise.
+- Links to social pages.
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 ### Features Left to Implement
-- Another feature idea
+- There would be a contact page to let the users send feedback directly on the page instead of sending an email.
+
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
+- [HTML](https://sv.wikipedia.org/wiki/HTML)
+    - For content and structure.
+- [CSS](https://sv.wikipedia.org/wiki/Cascading_Style_Sheets)
+    - For styling.
+- [Bootstrap](https://getbootstrap.com/)
+    - For grid-systems and some additional styling.
+- [GitHub](https://github.com/)
+    - For version control.
+- [Gitpod](https://gitpod.io/workspaces/)
+    - For coding.
+- [Heroku](https://heroku.com)
+    - For hosting.
+- [MongoDB](https://mongodb.com)
+    - As database.
+- [Fontawsome](https://fontawesome.com/)
+    - For icons.
+- [Google Fonts](https://fonts.google.com/)
+    - For font-families.
+- [SmashingLogo](https://smashinglogo.com/sv/)
+    - To create the HappyBurpees logo.
+- [Coolors](https://coolors.co/e8a28b-46322c-ffffff-fbeeea-e8a28b)
+    - For setting the color-scheme.
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+    - Used to build the web applications.
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
 
 
+
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+1. As a CrossFit practitioner, both experienced and beginners, you will always see new words or terms you newer heard before, therefore this page will give you the chanse to search and read more about them.
+    1. Go to happyburpees-dictionary
+    2. Choose Ordlista in the meny
+    3. Look for the term you want to know more about or use the searchbar to find it
+    4. Read the explanation
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+2. As a CrossFit practitioner I want to see how to lift or make a a particular exercise, therefore this page will give you the chans to search a term and click on a suggested videlink for thet exercise.
+    1. Go to happyburpees-dictionary
+    2. Choose the word/term you are intrested in
+    3. Click the link for that word/term
+    4. See the instructions in the video
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+3.  As a CrossFit practitioner it is nice to have a dictionary suited for you, therefore you will get the chanse to register an account where you can store the terms in CrossFit related to you.
+    1. Go to happyburpees-dictionary
+    2. Choose "Skapa konto" in the meny
+    3. Create an account by filling in email adresss, name and password
+    4. See that the meny now contains your own dictionary that you can edit
 
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
+4.  As a CrossFit practitioner, who already have an account, you want to log in to reach your own pages with your own dictionary.
+    1. Go to happyburpees-dictionary
+    2. Choose "Logga in" in the meny
+    3. Fill in your email and password
+    4. See that the meny now contains your own dictionary that you can edit
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+5.  As a CrossFit practitioner you want to fill in terms that ar relevant for you in CrossFit, therefore the site gives you the opportunity to create new items to the dictionary in an logged in mode.
+    1. Go to happyburpees-dictionary
+    2. Log in
+    3. Choose "Lägg till ord" in the meny
+    4. Write the new word or term that you want to be included in the dictionary.
+    5. Write a long and a short explanation about the word with the possibuility to share a link to a video.
+    6. Click on the "Lägg till" button to add the new word to the dictionary
+    7. See the new word in your dictionary
+
+6.  As a CrossFit practitioner you maybe want to change or the terms in your dicitionary or fill in more content, therefore this page will give you the opportunity to do that in an logged in mode.
+    1. Go to happyburpees-dictionary
+    2. Log in
+    3. Choose "Min ordlista" in the meny
+    4. Click on the pencil icon next to the word or term you want to edit
+    5. Update the name, explanation or video
+    6. Click the "Spara ändringar" button
+    7. Sheck out your edited word/term in your dictionary
+
+7.  As a CrossFit practitioner you want to make the dictionary of CrossFit terms suited for you, therefore you will have the chanse to delete words you earlier have created from your dictionary, in a logged in mode.
+    1. Go to happyburpees-dictionary
+    2. Log in
+    3. Choose "Min ordlista" in the meny
+    4. Click on the bin icon next to the word or term you want to delete
+    5. The word is no longer a part of your dictionary
+
+8.  As a CrossFit practitioner I want to see how to lift or make a a particular exercise, therefore this page will give you the opportunity to click on a shered video.
+    1. Go to happyburpees-dictionary
+    2. Log in
+    3. Choose "Min ordlista" in the meny
+    4. Click on the "external link" icon
+    5. Watch the video
+
+9. As a CrossFit practitioner I want inspiration and therefore the site have social media links to get you what you want.
+    1. Go to the footer on the page
+    2. Click on any of the links that takes you to facebook, instagram or youtube
+    3. Veriify that the links takes you to the social media you chosed
+
+1. As a CrossFit practitioner you sometimes have questions or suggestions therefore you find Contact information with an e-mail address.
+    1. Go to the top left on the page
+    2. Click on the mail-icon
+    3. Verify that your e-mail client opens up with contact@happyburpees.se as the receiver
+
 
 You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
 ## Deployment
+
+### Local deploy:
+- Clone repository from git: `git clone https://github.com/hanna-maja/happyburpees-dictionary`
+- Install requirements: `pip3 install -r requirements.txt`
+- Create database
+    - Register for mongodb cloud at https://www.mongodb.com/cloud
+    - Create a cluster
+        - Get the connectionstring
+        - Add connectionstring to environent variable MONGO_URI. `export MONGO_URI="<connection string>"`
+    - Create a database
+    - Add db name to environment variable MONGO_DBNAME. `export MONGO_DBNAME="<database name>"`
+    - Create two collections, `users` and `items`
+- Add port to environment variable PORT. `export PORT="8080"`
+- Add secret_key to environment variable SECRET_KEY. `export SECRET_KEY="<secret key>"`
+- Run application. python3 app.py
 
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
 
@@ -73,15 +169,14 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ## Credits
 
-### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+### Personal
+- Thanks to my husband that has supported me during the whole project, directed me when I have been stucked and helped me with tons of stupid questions!
+- I also want to say "Thank you" to my supporting mentor Dick Vlaanderen during this project.
 
-### Media
-- The photos used in this site were obtained from ...
+### Code
+- (https://hanna-maja.github.io/MI1/wodar.html)
+    - Started this project based on one page fron my first MileStoneProject. This is how I wanted my dictionary site on my first MileStoneProject should have looked, but by that time it was to much Technologies I had not learned yet.
 
-### Acknowledgements
-
-- I received inspiration for this project from X
 
 
 
