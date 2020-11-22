@@ -71,6 +71,7 @@ def login():
                 existing_user["password"], request.form.get("password")):
                     session["user"] =  request.form.get("username").lower()
                     flash("Du är inloggad, {}".format(existing_user["name"]))
+                    return redirect(url_for("get_items"))
             else:
                 # invalid password
                 flash("Felaktigt Email eller lösenord")

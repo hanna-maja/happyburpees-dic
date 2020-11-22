@@ -21,6 +21,13 @@ h3 {
   padding-bottom: 4rem;
 }
 
+/*----------------FLASH MESSAGE-----------*/
+.flash-message .alert{
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+
 /*----------------NAVBAR-----------*/
 
 .navbar {
