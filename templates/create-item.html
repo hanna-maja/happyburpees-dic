@@ -1,62 +1,67 @@
 {% extends "base.html" %} {% block content %}
-<h1>Lägg Till Ord</h1>
-
-<form method="POST" action="{{ url_for('create_item') }}">
-  <!-- name -->
-  <div class="form-group">
-    <label for="name">Ord</label>
-    <input
-      type="text"
-      class="form-control validate"
-      id="name"
-      name="name"
-      placeholder="Ord"
-      minlength="1"
-      maxlength="20"
-      required
-    />
+<div class="card col-12">
+  <div class="card-body">
+    <h1>Lägg Till Ord</h1>
+    <p class="card-text">Hjälp till att bygga den mest kompletta CrossFit-ordlistan. Tillsammans är vi starka.</p>
   </div>
-  <!-- short description -->
-  <div class="form-group">
-    <label for="short">Kort beskrivning</label>
-    <input
-      type="text"
-      class="form-control validate"
-      id="short"
-      name="short"
-      placeholder="Beskrivning"
-      minlength="1"
-      maxlength="50"
-      required
-    />
+  <div class="card-body">
+    <form method="POST" action="{{ url_for('create_item') }}">
+      <!-- name -->
+      <div class="form-group">
+        <label for="name">Ord</label>
+        <input
+          type="text"
+          class="form-control validate"
+          id="name"
+          name="name"
+          placeholder="Ord"
+          minlength="1"
+          maxlength="20"
+          required
+        />
+      </div>
+      <!-- short description -->
+      <div class="form-group">
+        <label for="short">Kort beskrivning</label>
+        <input
+          type="text"
+          class="form-control validate"
+          id="short"
+          name="short"
+          placeholder="Beskrivning"
+          minlength="1"
+          maxlength="50"
+          required
+        />
+      </div>
+      <!-- long description -->
+      <div class="form-group">
+        <label for="long">Längre beskrivning</label>
+        <input
+          type="text"
+          class="form-control validate"
+          id="long"
+          name="long"
+          placeholder="Beskrivning"
+          minlength="6"
+          maxlength="300"
+          required
+        />
+      </div>
+      <!-- video, not demand -->
+        <div class="form-group">
+        <label for="href">Länk till video/bild</label>
+        <input
+          type="text"
+          class="form-control validate"
+          id="href"
+          name="href"
+          placeholder="Lägg till URL"
+        />
+      </div>
+      <!-- register -->
+      <input class="btn btn-primary" type="submit" value="Lägg till" />
+    </form>   
   </div>
-  <!-- long description -->
-  <div class="form-group">
-    <label for="long">Längre beskrivning</label>
-    <input
-      type="text"
-      class="form-control validate"
-      id="long"
-      name="long"
-      placeholder="Beskrivning"
-      minlength="6"
-      maxlength="300"
-      required
-    />
-  </div>
-  <!-- video, not demand -->
-    <div class="form-group">
-    <label for="href">Länk till video/bild</label>
-    <input
-      type="text"
-      class="form-control validate"
-      id="href"
-      name="href"
-      placeholder="Lägg till URL"
-    />
-  </div>
-  <!-- register -->
-  <input class="btn btn-primary" type="submit" value="Lägg till" />
-</form>
-
+</div>
 {% endblock %}
