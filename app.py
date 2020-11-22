@@ -25,6 +25,12 @@ def get_items():
     return render_template("dictionary.html", items=items)
 
 
+@app.route("/sok/<term>")
+def search_items(term):
+    items = mongo.db.items.find({"$text": {"$search": term }}).sort("name")
+    return render_template("search-results.html", items=items)
+
+
 @app.route("/ord/<slug>")
 def view_item(slug):
     item = mongo.db.items.find_one({"slug": slug})
