@@ -2,6 +2,8 @@
 
 This site is for CrossFit practitioners or those hwo want to know more about the terms used in CrossFit training. The site remains a dictionary and explinations for a particular word or shortening that are common in CrossFit.
 The site will allow you to search, create, read, update and delete among the CrossFit related terms.
+
+# ![Logo](static/images/MS3.png) #
  
 ## UX
  
@@ -15,8 +17,6 @@ The site will allow you to search, create, read, update and delete among the Cro
 - As a CrossFit practitioner I want to see how to lift or make a a particular exercise, therefore this page will give you the opportunity to click on a shered video.
 - As a CrossFit practitioner I want inspiration and therefore the site have social media links to get you what you want.
 - As a CrossFit practitioner you sometimes have questions or suggestions therefore you find Contact information with an e-mail address.
-
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
 ## Features
 
@@ -136,9 +136,6 @@ This section is also where you would share links to any wireframes, mockups, dia
     3. Verify that your e-mail client opens up with contact@happyburpees.se as the receiver
 
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
 ## Deployment
 
