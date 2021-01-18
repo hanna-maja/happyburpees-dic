@@ -33,7 +33,7 @@ def search_all_items():
 
 @app.route("/sok/<term>")
 def search_items(term):
-    items = mongo.db.items.find({"$text": {"$search": term }}).sort("name")
+    items = mongo.db.items.find({"$text": {"$search": term}}).sort("name")
     return render_template("search-results.html", items=items)
 
 
@@ -73,11 +73,11 @@ def login():
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
         if existing_user:
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] =  request.form.get("username").lower()
-                    flash("Du är inloggad, {}".format(existing_user["name"]))
-                    return redirect(url_for("get_items"))
+            if check_password_hash(existing_user["password"],
+                                   request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Du är inloggad, {}".format(existing_user["name"]))
+                return redirect(url_for("get_items"))
             else:
                 # invalid password
                 flash("Felaktigt Email eller lösenord")
@@ -92,7 +92,7 @@ def login():
 @app.route("/nytt-ord", methods=["GET", "POST"])
 def create_item():
     if request.method == "POST":
-         # does item-name alredy exist in db
+        # does item-name alredy exist in db
         existing_item = mongo.db.items.find_one(
             {"name": request.form.get("name")})
 
@@ -142,16 +142,26 @@ def delete_item(id):
 @app.route("/redigera/<id>", methods=["GET", "POST"])
 def update_item(id):
     if request.method == "POST":
+        # does item-name alredy exist in db
+        existing_item = mongo.db.items.find_one(
+            {"name": request.form.get("name")})
+
+        if existing_item and ObjectId(id) != existing_item['_id']:
+            flash("Ordet finns redan med i ordlistan")
+            item = mongo.db.items.find_one({"_id": ObjectId(id)})
+            return render_template("update-item.html", item=item)
+
         dictionary = {
             "name": request.form.get("name"),
             "short": request.form.get("short"),
             "long": request.form.get("long"),
-            "username": session["user"]
+            "username": session["user"],
+            "slug": slugify(request.form.get("name")),
         }
         if request.form.get("href"):
             dictionary["href"] = request.form.get("href")
 
-        mongo.db.items.update({"_id": ObjectId(id)},dictionary)
+        mongo.db.items.update({"_id": ObjectId(id)}, dictionary)
         flash("Ordet är sparat")
         return redirect(url_for("my_items"))
     item = mongo.db.items.find_one({"_id": ObjectId(id)})
